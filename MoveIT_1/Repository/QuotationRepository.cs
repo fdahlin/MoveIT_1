@@ -60,6 +60,7 @@ namespace MoveIT_1.Repository
         public Quotation AddQuotation(Quotation qoutation)
         {
             qoutation.Id = ObjectId.GenerateNewId().ToString(); // TODO: Add calculation
+            qoutation.GetPrice();
             qoutation.LastModified = DateTime.UtcNow;
             _quotations.Insert(qoutation);
             return qoutation;

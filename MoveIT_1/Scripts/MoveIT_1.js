@@ -3,10 +3,12 @@
 MoveIT_1.controller('LandingPageController', LandingPageController);
 MoveIT_1.controller('LoginController', LoginController);
 MoveIT_1.controller('RegisterController', RegisterController);
+MoveIT_1.controller('QuotationController', QuotationController);
 
 MoveIT_1.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 MoveIT_1.factory('LoginFactory', LoginFactory);
 MoveIT_1.factory('RegistrationFactory', RegistrationFactory);
+MoveIT_1.factory('QuotationFactory', QuotationFactory);
 
 var configFunction = function($routeProvider, $httpProvider) {
     $routeProvider.
@@ -26,6 +28,10 @@ var configFunction = function($routeProvider, $httpProvider) {
         .when('/register', {
             templateUrl: '/Account/Register',
             controller: RegisterController
+        })
+        .when('/quotation', {
+            templateUrl: 'quotation',
+            controller: QuotationController
         });
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');

@@ -52,7 +52,8 @@ namespace MoveIT_1.Models
 
         public decimal GetPrice()
         {
-            return GetNumberOfCars() * GetDistancePrice();
+            EstimatedPrice = GetNumberOfCars() * GetDistancePrice();
+            return EstimatedPrice; // TODO maybe not return?
         }
     }
 

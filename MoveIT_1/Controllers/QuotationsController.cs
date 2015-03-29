@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Results;
 using MoveIT_1.Models;
 using MoveIT_1.Repository;
 
@@ -27,6 +23,11 @@ namespace MoveIT_1.Controllers
                 return NotFound();
             }
             return Ok(quotation);
+        }
+
+        public void AddQuotation(Quotation quotation)
+        {
+            _quotations.AddQuotation(quotation);
         }
     }
 }
