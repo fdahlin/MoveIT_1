@@ -17,9 +17,9 @@ namespace MoveIT_1.Models
         public int LivingArea { get; set; }
         public bool PianoMove { get; set; }
         public bool PackageingHelp { get; set; }
+        public int ExtraStorageArea { get; set; }
         public decimal EstimatedPrice { get; set; }
         public DateTime LastModified { get; set; }
-        public int ExtraStorageArea { get; set; }
 
         public int GetNumberOfCars()
         {

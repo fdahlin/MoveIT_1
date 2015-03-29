@@ -226,17 +226,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Controllers\LandingPageController.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Controllers\LoginController.js" />
     <Content Include="Scripts\Controllers\QuotationController.js" />
     <Content Include="Scripts\Controllers\RegisterController.js" />
@@ -244,9 +238,6 @@
     <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\Factories\QuotationFactory.js" />
     <Content Include="Scripts\Factories\RegistrationFactory.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MoveIT_1.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -258,22 +249,19 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\RoutesDemo\Two.cshtml" />
     <Content Include="Views\RoutesDemo\Three.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\RoutesDemo\One.cshtml" />
     <Content Include="Views\Quotation\Index.cshtml" />
+    <Content Include="Views\Quotation\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

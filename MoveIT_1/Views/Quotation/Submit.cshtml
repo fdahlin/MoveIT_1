@@ -1,0 +1,41 @@
+﻿<h2>Fyll i nedanstående information för att få prisförslag för bohagsflytt</h2>
+<form ng-submit="addQuotation()">
+    <label for="name">Namn:</label>
+    <input type="text" id="name" ng-model="quotationForm.name" required/>
+
+    <label for="emailAddress">Mailadress:</label>
+    <input type="text" id="emailAddress" ng-model="quotationForm.emailAddress" required/>
+
+    <label for="fromStreet">Från gatuadress:</label>
+    <input type="text" id="fromStreet" ng-model="quotationForm.fromStreet" required/>
+
+    <label for="fromCity">Från stad:</label>
+    <input type="text" id="fromCity" ng-model="quotationForm.fromCity" required/>
+
+    <label for="toStreet">Till gatuadress:</label>
+    <input type="text" id="toStreet" ng-model="quotationForm.toStreet" required/>
+
+    <label for="toCity">Till stad:</label>
+    <input type="text" id="toCity" ng-model="quotationForm.toCity" required/>
+
+    <label for="distanceInKm">Avstånd (km):</label>
+    <input type="text" id="distanceInKm" ng-model="quotationForm.distanceInKm" min="0" required/>
+
+    <label for="livingArea">Bostadens yta (kvm):</label>
+    <input type="text" id="livingArea" ng-model="quotationForm.livingArea" min="0" required/>
+
+    <label for="extraStorageArea">Vind/Källare (kvm):</label>
+    <input type="text" id="extraStorageArea" ng-model="quotationForm.extraStorageArea" min="0" required/>
+
+    <label for="pianoMove">Pianoflytt</label>
+    <input type="checkbox" id="pianoMove" ng-model="quotationForm.pianoMove"/>
+
+    <label for="packageingHelp">Packhjälp</label>
+    <input type="checkbox" id="packageingHelp" ng-model="quotationForm.packageingHelp"/>
+
+    <button type="submit">Skicka</button>
+</form>
+
+<div ng-if="quotationForm.addQuotationFailure">
+    Det gick inte att skapa något prisförslag för tillfället. Var god försök igen senare.
+</div>

@@ -13,5 +13,10 @@ namespace MoveIT_1.Controllers
         {
             return View();
         }
+
+        public ActionResult Submit()
+        {
+            return View();
+        }
     }
 }

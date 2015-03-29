@@ -29,9 +29,12 @@ var configFunction = function($routeProvider, $httpProvider) {
             templateUrl: '/Account/Register',
             controller: RegisterController
         })
-        .when('/quotation', {
-            templateUrl: 'quotation',
+        .when('/submit', {
+            templateUrl: 'quotation/submit',
             controller: QuotationController
+        })
+        .when('/quotation/:id', {
+            templateUrl: function(params) { return 'quotation/?id=' + params.id; } 
         });
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
