@@ -11,9 +11,7 @@ namespace MoveIT_1.Repository
 {
     public class QuotationRepository : IQuotationRepository
     {
-        private MongoServer _server;
-        private MongoDatabase _database;
-        private MongoCollection<Quotation> _quotations;
+        private readonly MongoCollection<Quotation> _quotations;
 
         public QuotationRepository(string connectionString)
         {
@@ -22,12 +20,12 @@ namespace MoveIT_1.Repository
                 connectionString = "mongodb://localhost:27017";
             }
             var client = new MongoClient(connectionString);
-            _server = client.GetServer();
-            _database = _server.GetDatabase("Quotations");
-            _quotations = _database.GetCollection<Quotation>("quotations");
+            var server = client.GetServer();
+            var database = server.GetDatabase("Quotations");
+            _quotations = database.GetCollection<Quotation>("quotations");
 
             _quotations.RemoveAll();
-
+            // Add some initial data
             for (int index = 1; index < 5; index++)
             {
                 var quotation = new Quotation()
