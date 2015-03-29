@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MoveIT_1.Models
 {
     public class Quotation
     {
-        public int Id { get; set; }
+        [BsonId]
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string FromStreet { get; set; }
@@ -19,5 +18,6 @@ namespace MoveIT_1.Models
         public bool PianoMove { get; set; }
         public bool PackageingHelp { get; set; }
         public decimal EstimatedPrice { get; set; }
+        public DateTime LastModified { get; set; }
     }
 }

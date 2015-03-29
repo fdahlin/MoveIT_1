@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
+using MoveIT_1.Models;
+
+namespace MoveIT_1.Repository
+{
+    public class QuotationRepository : IQuotationRepository
+    {
+        private MongoServer _server;
+        private MongoDatabase _database;
+        private MongoCollection<Quotation> _quotations;
+
+        public QuotationRepository(string connectionString)
+        {
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                connectionString = "mongodb://localhost:27017";
+            }
+            var client = new MongoClient(connectionString);
+            _server = client.GetServer();
+            _database = _server.GetDatabase("Quotations");
+            _quotations = _database.GetCollection<Quotation>("quotations");
+
+            _quotations.RemoveAll();
+
+            for (int index = 1; index < 5; index++)
+            {
+                var quotation = new Quotation()
+                {
+                    DistanceInKm = 10 * index,
+                    Email = string.Format("test{0}@example.com", index),
+                    Name = string.Format("test{0}", index),
+                };
+                AddQuotation(quotation);
+            }
+
+        }
+
+        public QuotationRepository()
+            : this(string.Empty)
+        {
+        }
+
+
+        public IEnumerable<Quotation> GetAllQuotations()
+        {
+            return _quotations.FindAll();
+        }
+
+
+        public Quotation GetQuotation(string id)
+        {
+            var query = Query<Quotation>.EQ(e => e.Id, id);
+            return _quotations.FindOne(query);
+        }
+
+        public Quotation AddQuotation(Quotation qoutation)
+        {
+            qoutation.Id = ObjectId.GenerateNewId().ToString(); // TODO: Add calculation
+            qoutation.LastModified = DateTime.UtcNow;
+            _quotations.Insert(qoutation);
+            return qoutation;
+        }
+    }
+}

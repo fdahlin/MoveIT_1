@@ -6,35 +6,22 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
 using MoveIT_1.Models;
+using MoveIT_1.Repository;
 
 namespace MoveIT_1.Controllers
 {
     public class QuotationsController : ApiController
     {
-        private Quotation[] _quotations = {
-            new Quotation
-            {
-                Id = 1,
-                DistanceInKm = 5,
-                Email = "first@email.net",
-                EstimatedPrice = 12000,
-                FromCity = "Stockholm",
-                FromStreet = "Törnbladsgatan 1",
-                LivingArea = 102,
-                Name = "Janne Lorentzon",
-                PackageingHelp = true,
-                PianoMove = false
-            },
-        };
+        private static readonly IQuotationRepository _quotations = new QuotationRepository();
 
         public IEnumerable<Quotation> GetAllQuotations()
         {
-            return _quotations;
+            return _quotations.GetAllQuotations().AsQueryable();
         }
 
-        public IHttpActionResult GetQuotation(int id)
+        public IHttpActionResult GetQuotation(string id)
         {
-            var quotation = _quotations.FirstOrDefault((q) => q.Id == id);
+            var quotation = _quotations.GetQuotation(id);
             if (quotation == null)
             {
                 return NotFound();
