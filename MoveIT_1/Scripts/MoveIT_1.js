@@ -38,7 +38,7 @@ var configFunction = function ($routeProvider, $httpProvider, $locationProvider)
             controller: QuotationController
         })
         .when('/quotation/:id', {
-            templateUrl: function (params) { return 'quotation/?id=' + params.id; },
+            templateUrl: function (params) { return '/quotation/present?id=' + params.id; },
             controller: DisplayQuotationController
         });
 

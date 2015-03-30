@@ -1,5 +1,5 @@
 ﻿var QuotationFactory = function ($http, $q) {
-    return function (emailAddress, name, fromStreet, fromCity, toStreet, toCity, distanceInKm, livingArea, pianoMove, packageingHelp, extraStorageArea) {
+    return function (name, emailAddress, fromStreet, fromCity, toStreet, toCity, distanceInKm, livingArea, pianoMove, packageingHelp, extraStorageArea) {
 
         var deferred = $q.defer();
 

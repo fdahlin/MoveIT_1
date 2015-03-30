@@ -9,7 +9,7 @@ namespace MoveIT_1.Controllers
     public class QuotationController : Controller
     {
         // GET: Quotation
-        public ActionResult Index()
+        public ActionResult Present()
         {
             return View();
         }

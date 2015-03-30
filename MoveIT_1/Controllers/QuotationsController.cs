@@ -17,7 +17,7 @@ namespace MoveIT_1.Controllers
 
         public IHttpActionResult GetQuotation(string id)
         {
-            var quotation = Quotations.GetQuotation(id);
+            var quotation = Quotations.GetQuotation(id, User.Identity.Name); //TODO: Kanske fixa till bättre id?
             if (quotation == null)
             {
                 return NotFound();

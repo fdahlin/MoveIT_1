@@ -51,9 +51,10 @@ namespace MoveIT_1.Repository
         }
 
 
-        public Quotation GetQuotation(string id)
+        public Quotation GetQuotation(string id, string userId)
         {
-            var query = Query<Quotation>.EQ(e => e.Id, id);
+            var query = Query.And(Query<Quotation>.EQ(e => e.Id, id),
+                            Query<Quotation>.EQ(e => e.Email, userId));
             return _quotations.FindOne(query);
         }
 
