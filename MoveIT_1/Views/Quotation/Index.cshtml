@@ -1,1 +1,75 @@
-﻿<h2>Prisförslag för bohagsflytt</h2>
+﻿@{
+    ViewBag.Title = "Play";
+}
+
+
+<h2>Prisförslag för bohagsflytt</h2>
+
+<div ng-controller="DisplayQuotationController">
+    <div>
+        <div>
+            <div>Offertnummer: {{Quotation.Id}}</div>
+        </div>
+        <div>
+            <div>{{Quotation.Name}}</div>
+        </div>
+        <div>
+            <div>{{Quotation.Email}}</div>
+        </div>
+        <div>
+            <div></div>
+        </div>
+        <div>
+            <div>Från: {{Quotation.FromStreet}}, {{Quotation.FromCity}}</div>
+        </div>
+        <div>
+            <div>Till: {{Quotation.ToStreet}}, {{Quotation.ToCity}}</div>
+        </div>
+        <div>
+            <div>Avstånd: {{Quotation.DistanceInKm}}</div>
+        </div>
+        <div>
+            <div></div>
+        </div>
+        <div>
+            <div>Bostadens yta: {{Quotation.LivingArea}} kvm</div>
+        </div>
+        <div>
+            <div>Vind/Källare: {{Quotation.ExtraStorageArea}} kvm</div>
+        </div>
+        <div>
+            <div></div>
+        </div>
+        <div>
+            <div>Övrigt</div>
+        </div>
+        <div>
+            <div>Pianoflytt: {{Quotation.ExtraStorageArea}}</div>
+        </div>
+        <div>
+            <div>Packhjälp: {{Quotation.PianoMove}}</div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <p>Uppskattat pris:</p>
+            <p>{{Quotation.EstimatedPrice}} kr inkl moms</p>
+        </div>
+        <div>
+            <div></div>
+        </div>
+        <div>
+            <div>
+                <p>Vi sparar ditt prisförslag 90 dagar.</p>
+                <p>För att se prisförslaget igen, besök: </p>
+                <p><a href="@Request.Url.GetLeftPart(UriPartial.Path){{Quotation.Id}}">@Request.Url.GetLeftPart(UriPartial.Path){{Quotation.Id}}</a>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Om du har frågor, kontakta flytt@moveit.se</p>
+            </div>
+        </div>
+    </div>
+</div>

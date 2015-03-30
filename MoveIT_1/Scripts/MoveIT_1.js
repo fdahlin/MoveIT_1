@@ -4,6 +4,7 @@ MoveIT_1.controller('LandingPageController', LandingPageController);
 MoveIT_1.controller('LoginController', LoginController);
 MoveIT_1.controller('RegisterController', RegisterController);
 MoveIT_1.controller('QuotationController', QuotationController);
+MoveIT_1.controller('DisplayQuotationController', DisplayQuotationController); // TODO: annat namn?
 
 MoveIT_1.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 MoveIT_1.factory('LoginFactory', LoginFactory);
@@ -34,7 +35,8 @@ var configFunction = function($routeProvider, $httpProvider) {
             controller: QuotationController
         })
         .when('/quotation/:id', {
-            templateUrl: function(params) { return 'quotation/?id=' + params.id; } 
+            templateUrl: function (params) { return 'quotation/?id=' + params.id; },
+            controller: DisplayQuotationController
         });
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
