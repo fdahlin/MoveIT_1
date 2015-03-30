@@ -1,7 +1,7 @@
 ﻿var QuotationFactory = function ($http, $q) {
     return function (emailAddress, name, fromStreet, fromCity, toStreet, toCity, distanceInKm, livingArea, pianoMove, packageingHelp, extraStorageArea) {
 
-        var deferredObject = $q.defer();
+        var deferred = $q.defer();
 
         $http.post(
             '/api/quotations/', {
@@ -19,17 +19,13 @@
             }
         ).
         success(function (data) {
-            if (data == "True") {
-                deferredObject.resolve({ success: true });
-            } else {
-                deferredObject.resolve({ success: false });
-            }
+            deferred.resolve({ success: true, Id: data.Id });
         }).
         error(function () {
-            deferredObject.resolve({ success: false });
+            deferred.resolve({ success: false });
         });
 
-        return deferredObject.promise;
+        return deferred.promise;
     }
 }
 

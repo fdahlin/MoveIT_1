@@ -20,7 +20,7 @@
                         $scope.quotationForm.livingArea, $scope.quotationForm.pianoMove, $scope.quotationForm.packageingHelp, $scope.quotationForm.extraStorageArea);
         result.then(function (result) {
             if (result.success) {
-                $location.path('/quotation/' + result._id);
+                $location.path('/quotation/' + result.Id);
             } else {
                 $scope.quotationForm.addQuotationFailure = true; 
             }
