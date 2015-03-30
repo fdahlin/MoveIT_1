@@ -1,12 +1,27 @@
-﻿<form ng-submit="register()">
-    <label for="emailAddress">Email Address:</label>
-    <input id="emailAddress" type="text" ng-model="registerForm.emailAddress" required />
+﻿<p></p>
 
-    <label for="password">Password:</label>
-    <input id="password" type="password" ng-model="registerForm.password" required />
 
-    <label for="confirmPassword">Confirm Password:</label>
-    <input id="confirmPassword" type="password" ng-model="registerForm.confirmPassword" required />
-
-    <button type="submit">Register</button>
+<form ng-submit="register()">
+    <p>
+        <label for="emailAddress">Email Address:</label>
+        <input id="emailAddress" type="text" ng-model="registerForm.emailAddress" required/>
+    </p>
+    <p>
+       
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input id="password" type="password" ng-model="registerForm.password" required/>
+    </p>
+    <p>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input id="confirmPassword" type="password" ng-model="registerForm.confirmPassword" required/>
+    </p>
+    <p>
+        <button type="submit">Register</button>
+    </p>
 </form>
+
+<div ng-if="registerForm.registrationFailure">
+    Det gick inte att registrera med angivna uppgifter. Lösenord måste ha åtminstone en icke-bokstav och ett numeriskt tecken. Lösenord måste ha åtminstone en stor bokstav.
+</div>

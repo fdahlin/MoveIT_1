@@ -12,6 +12,8 @@ namespace MoveIT_1.Controllers
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
 
+        public AccountController() { }
+
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;

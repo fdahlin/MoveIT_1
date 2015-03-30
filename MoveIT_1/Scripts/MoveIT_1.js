@@ -11,7 +11,10 @@ MoveIT_1.factory('LoginFactory', LoginFactory);
 MoveIT_1.factory('RegistrationFactory', RegistrationFactory);
 MoveIT_1.factory('QuotationFactory', QuotationFactory);
 
-var configFunction = function($routeProvider, $httpProvider) {
+var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {
+
+    $locationProvider.hashPrefix('!').html5Mode(true);
+
     $routeProvider.
         when('/routeOne', {
             templateUrl: 'routesDemo/one'
@@ -42,6 +45,6 @@ var configFunction = function($routeProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 
 }
-configFunction.$inject = ['$routeProvider', '$httpProvider'];
+configFunction.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
 
 MoveIT_1.config(configFunction);
