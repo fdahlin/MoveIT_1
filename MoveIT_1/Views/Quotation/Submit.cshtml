@@ -1,10 +1,8 @@
-﻿<h2>Fyll i nedanstående information för att få prisförslag för bohagsflytt</h2>
+﻿@using Microsoft.AspNet.Identity
+<h2>Fyll i nedanstående information för att få prisförslag för bohagsflytt</h2>
 <form ng-submit="addQuotation()">
     <label for="name">Namn:</label>
     <input type="text" id="name" ng-model="quotationForm.name" required/>
-
-    <label for="emailAddress">Mailadress:</label>
-    <input type="text" id="emailAddress" ng-model="quotationForm.emailAddress" required/>
 
     <label for="fromStreet">Från gatuadress:</label>
     <input type="text" id="fromStreet" ng-model="quotationForm.fromStreet" required/>

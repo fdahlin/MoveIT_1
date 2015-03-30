@@ -1,11 +1,10 @@
 ﻿var QuotationFactory = function ($http, $q) {
-    return function (name, emailAddress, fromStreet, fromCity, toStreet, toCity, distanceInKm, livingArea, pianoMove, packageingHelp, extraStorageArea) {
+    return function (name, fromStreet, fromCity, toStreet, toCity, distanceInKm, livingArea, pianoMove, packageingHelp, extraStorageArea) {
 
         var deferred = $q.defer();
 
         $http.post(
             '/api/quotations/', {
-                Email: emailAddress,
                 Name: name,
                 FromStreet: fromStreet,
                 FromCity: fromCity,

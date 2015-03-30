@@ -10,11 +10,13 @@ namespace MoveIT_1.Controllers
     {
         private static readonly IQuotationRepository Quotations = new QuotationRepository();
 
+        [Authorize]
         public IEnumerable<Quotation> GetAllQuotations()
         {
             return Quotations.GetAllQuotations().AsQueryable();
         }
 
+        [Authorize]
         public IHttpActionResult GetQuotation(string id)
         {
             var quotation = Quotations.GetQuotation(id, User.Identity.Name); //TODO: Kanske fixa till bättre id?
@@ -25,8 +27,10 @@ namespace MoveIT_1.Controllers
             return Ok(quotation);
         }
 
+        [Authorize]
         public IHttpActionResult AddQuotation(Quotation quotation)
         {
+            quotation.Email = User.Identity.Name;
             var item = Quotations.AddQuotation(quotation);
             return Ok(item);
         }

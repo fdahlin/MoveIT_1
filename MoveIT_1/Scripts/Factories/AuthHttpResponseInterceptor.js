@@ -9,7 +9,8 @@
         responseError: function (rejection) {
             if (rejection.status === 401) {
                 console.log("Response Error 401", rejection);
-                $location.path('/login').search('returnUrl', $location.path());
+                var returnTo = $location.path();
+                $location.path('/login').search('returnTo', returnTo);
             }
             return $q.reject(rejection);
         }

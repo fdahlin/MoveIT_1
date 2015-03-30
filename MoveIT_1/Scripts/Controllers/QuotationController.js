@@ -1,7 +1,6 @@
 ﻿var QuotationController = function ($scope, $location, QuotationFactory) {
     $scope.quotationForm = {
         name: '',
-        emailAddress: '',
         fromStreet: '',
         fromCity: '',
         toStreet: '',
@@ -15,9 +14,9 @@
     };
 
     $scope.addQuotation = function () {
-        var result = QuotationFactory($scope.quotationForm.name, $scope.quotationForm.emailAddress, $scope.quotationForm.fromStreet,
-                        $scope.quotationForm.fromCity, $scope.quotationForm.toStreet, $scope.quotationForm.toCity, $scope.quotationForm.distanceInKm,
-                        $scope.quotationForm.livingArea, $scope.quotationForm.pianoMove, $scope.quotationForm.packageingHelp, $scope.quotationForm.extraStorageArea);
+        var result = QuotationFactory($scope.quotationForm.name, $scope.quotationForm.fromStreet, $scope.quotationForm.fromCity, $scope.quotationForm.toStreet,
+                        $scope.quotationForm.toCity, $scope.quotationForm.distanceInKm, $scope.quotationForm.livingArea, $scope.quotationForm.pianoMove,
+                        $scope.quotationForm.packageingHelp, $scope.quotationForm.extraStorageArea);
         result.then(function (result) {
             if (result.success) {
                 $location.path('/quotation/' + result.Id);

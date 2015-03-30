@@ -14,7 +14,7 @@
             PackageingHelp: data.PackageingHelp ? "Ja" : "Nej",
             ExtraStorageArea: data.ExtraStorageArea ? "Ja" : "Nej",
             EstimatedPrice: data.EstimatedPrice,
-            Location: $location.path()
+            Url: $location.absUrl()
         };
     });
 
