@@ -44,6 +44,11 @@ namespace MoveIT_1
                 defaults: new { controller = "Quotation", action = "Submit" });
 
             routes.MapRoute(
+                name: "quotation",
+                url: "quotation/{id}",
+                defaults: new { controller = "Quotation", action = "Index", id = UrlParameter.Optional });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{*url}",
                 defaults: new { controller = "Home", action = "Index" });
